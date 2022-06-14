@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>text</title>
+        <style>
+            span {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="sample">Hello <span>World!</span></h1>
+        <h1 id="result"></h1>
+
+        <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            // $('#sample').text()
+            // console.log($("#sample").text());
+
+            const sampleText = $("#sample").text();
+            // $('#result').text(sampleText);
+
+            const sampleHtml = $("#sample").html();
+            // $('#result').html(sampleHtml);
+
+            $("#result").text(sampleHtml);
+        </script>
+    </body>
+</html>

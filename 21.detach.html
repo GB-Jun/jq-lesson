@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+            integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+            crossorigin="anonymous"
+        />
+
+        <title>Document</title>
+    </head>
+    <body>
+        <button class="btn btn-info">detach</button>
+        <div class="container">
+            <div class="row flex-column">
+                <div class="hello">Hello World</div>
+                <div class="hello hello1">Hello World1</div>
+                <div class="hello2">Hello World2</div>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"
+        ></script>
+        <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            let isDetached = false;
+            let myContent = null;
+            let index = 0;
+
+            $(".btn").click(function () {
+                if (isDetached) {
+                    isDetached = !isDetached;
+                    $(".row").append(myContent);
+                    myContent = null;
+                } else {
+                    index++;
+                    isDetached = !isDetached;
+                    myContent = $(".row div").detach();
+                }
+            });
+
+            // detach會保留func的link, remove只有貼回節點,但功能會失效
+        </script>
+    </body>
+</html>
