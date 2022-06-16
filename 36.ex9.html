@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+            integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+            crossorigin="anonymous"
+        />
+        <title>ex9</title>
+        <style>
+            .wrap {
+                width: 800px;
+                height: 400px;
+                background-color: #ccc;
+                position: relative;
+            }
+
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: lightblue;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap mx-auto">
+            <div class="box"></div>
+        </div>
+
+        <div class="text-center">
+            <button id="up" class="btn btn-info">
+                <i class="fas fa-caret-up"></i>
+            </button>
+        </div>
+        <div class="text-center">
+            <button id="left" class="btn btn-info mx-3">
+                <i class="fas fa-caret-left"></i>
+            </button>
+
+            <button id="right" class="btn btn-info mx-3">
+                <i class="fas fa-caret-right"></i>
+            </button>
+        </div>
+        <div class="text-center">
+            <button id="down" class="btn btn-info">
+                <i class="fas fa-caret-down"></i>
+            </button>
+        </div>
+
+        <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            const move = function (cssName, dir, speed) {
+                $(".box").css(cssName, dir + speed);
+            };
+            $("#up").click(function () {
+                // console.log(parseInt($(".box").css("top")));
+                if (parseInt($(".box").css("top")) > 0) {
+                    // $(".box").css("top", "-=100");
+                    move("top", "-=", "100");
+                    // console.log("move");
+                } else {
+                    move("top", "", "300px");
+                    // $(".box").css("top", "300px");
+                    // console.log("tele");
+                }
+            });
+            $("#down").click(function () {
+                if (parseInt($(".box").css("top")) < 300) {
+                    move("top", "+=", "100");
+                } else {
+                    move("top", "", "0px");
+                }
+            });
+            $("#left").click(function () {
+                if (parseInt($(".box").css("left")) > 0) {
+                    move("left", "-=", "100");
+                } else {
+                    move("left", "", "700px");
+                }
+            });
+            $("#right").click(function () {
+                if (parseInt($(".box").css("left")) < 700) {
+                    move("left", "+=", "100");
+                } else {
+                    move("left", "", "0px");
+                }
+            });
+        </script>
+    </body>
+</html>

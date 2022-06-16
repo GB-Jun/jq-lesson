@@ -17,31 +17,72 @@
         />
 
         <title>Document</title>
+        <style>
+            .bg-gray {
+                background-color: #ccc;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
             <div class="row">
                 <table class="table table-bordered">
                     <tr>
-                        <td><input type="checkbox" /></td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                name="checkall"
+                                class="checkall"
+                            />
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input
+                                type="checkbox"
+                                name="checkname[]"
+                                class="checkicon"
+                            />
+                        </td>
                         <td>Elon Musk</td>
                         <td>0912345678</td>
                         <td>Elon_Musk@gmail.com</td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" /></td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                name="checkname[]"
+                                class="checkicon"
+                            />
+                        </td>
                         <td>Mark Zuckerberg</td>
                         <td>0912345678</td>
                         <td>Mark_Zuckerberg@gmail.com</td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" /></td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                name="checkname[]"
+                                class="checkicon"
+                            />
+                        </td>
                         <td>Bill Gates</td>
                         <td>0912345678</td>
                         <td>Bill_Gates@gmail.com</td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" /></td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                name="checkname[]"
+                                class="checkicon"
+                            />
+                        </td>
                         <td>Larry Page</td>
                         <td>0912345678</td>
                         <td>Larry_Page@gmail.com</td>
@@ -68,6 +109,33 @@
         ></script>
 
         <script src="./js/jquery-3.6.0.js"></script>
-        <script></script>
+        <script>
+            $('input[name="checkname[]"]').click(function () {
+                if (this.checked) {
+                    // console.log("checked");
+                    // console.log($(this).closest("tr"));
+                    $(this).closest("tr").addClass("bg-gray");
+                } else {
+                    // console.log("unckecked");
+                    $(this).closest("tr").removeClass("bg-gray")
+                        .siblings()
+                        .find('input[name="checkall"]')
+                        .prop("checked", false);
+                }
+            });
+            $('input[name="checkall"]').click(function () {
+                if (this.checked) {
+                    $("input[name='checkname[]']").prop("checked", true);
+                    $("input[name='checkname[]']")
+                        .closest("tr")
+                        .addClass("bg-gray");
+                } else {
+                    $("input[name='checkname[]']").prop("checked", false);
+                    $("input[name='checkname[]']")
+                        .closest("tr")
+                        .removeClass("bg-gray");
+                }
+            });
+        </script>
     </body>
 </html>
