@@ -24,6 +24,7 @@
                 border-radius: 50%;
                 overflow: hidden;
                 margin: 10px;
+                border: 5px solid transparent;
             }
 
             .img-wrap > img {
@@ -36,14 +37,23 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="img-wrap"><img src="./img/person1.jpg" alt=""></div>
-                <div class="img-wrap"><img src="./img/person2.jpg" alt=""></div>
-                <div class="img-wrap"><img src="./img/person3.jpg" alt=""></div>
-                <div class="img-wrap"><img src="./img/person4.jpg" alt=""></div>
-                <div class="img-wrap"><img src="./img/person5.jpg" alt=""></div>
+                <div class="img-wrap">
+                    <img src="./img/person1.jpg" alt="" />
+                </div>
+                <div class="img-wrap">
+                    <img src="./img/person2.jpg" alt="" />
+                </div>
+                <div class="img-wrap">
+                    <img src="./img/person3.jpg" alt="" />
+                </div>
+                <div class="img-wrap">
+                    <img src="./img/person4.jpg" alt="" />
+                </div>
+                <div class="img-wrap">
+                    <img src="./img/person5.jpg" alt="" />
+                </div>
             </div>
         </div>
-
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -65,15 +75,14 @@
 
         <script src="./js/jquery-3.6.0.js"></script>
         <script>
-            $('.img-wrap').click(e =>{
+            $(".img-wrap").click((e) => {
                 // console.log('clicked')
                 pla = $(e.currentTarget);
                 // console.log(pla);
-                $(pla).css("outline", "2px solid red");
+                $(pla).css("border", "5px solid red");
                 // console.log($(`e.currentTarget:first-child`));
-                $('.img-wrap').not(pla).css('outline', '0px solid red');
-                
-            })
+                $(".img-wrap").not(pla).css("border", "5px solid transparent");
+            });
         </script>
     </body>
 </html>
