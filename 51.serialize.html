@@ -85,6 +85,15 @@
             $("form").on("submit", function (event) {
                 event.preventDefault();
                 console.log($("form").serialize());
+
+                $.ajax({
+                    method: "POST",
+                    url: "http://localhost:3000/login",
+                    data: $("form").serialize(),
+                    dataType: "json",
+                }).done(function (data) {
+                    console.log(JSON.parse(JSON.stringify(data)));
+                });
             });
         </script>
     </body>
